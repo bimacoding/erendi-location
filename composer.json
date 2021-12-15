@@ -1,0 +1,32 @@
+{
+    "name": "erendi/location",
+    "description": "Libari untuk lokasi provinsi, kab/kota, kecamatan, dan desa",
+    "type": "library",
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Erendi\\Location\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bimacoding",
+            "email": "bimacoding@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "laravel":{
+            "providers": [
+                "Erendi\\Location\\LocationServiceProvider"
+            ],
+            "aliases": {
+                "Lokasi": "Erendi\\Location\\Facades\\Location"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
