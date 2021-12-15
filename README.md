@@ -75,6 +75,56 @@ php artisan migrate
     @endonce
 @endsection
 ```
+### Contoh Pimplemntasi langsung
+ini pada file "create.blade.php" yang saya punya
+```php
+@extends('layouts.template')
+@section('content')
+    <section id="basic-vertical-layouts">
+        <div class="row match-height">
+            <div class="col-md-12 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ $title }}</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            {!! Form::open(['route' => 'users.store', 'method' => 'POST']) !!}
+                            <div class="form-body">
+                                <div class="row">
+                                    ..... code saya 
+                                    {!! Lokasi::render() !!}
+                                    ........
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @once
+        @push('ext_css')
+            {!! Lokasi::css() !!}
+        @endpush
+        @push('ext_scripts')
+            {!! Lokasi::scripts() !!}
+        @endpush
+    @endonce
+@endsection
+
+```
 
 ### Mengunakan Model Provinsi, Kota/Kabupate, Kecamatan, Desa
 
