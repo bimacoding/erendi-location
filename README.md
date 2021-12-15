@@ -102,9 +102,9 @@ ini pada file "create.blade.php" yang saya punya
                             {!! Form::open(['route' => 'users.store', 'method' => 'POST']) !!}
                             <div class="form-body">
                                 <div class="row">
-                                    ..... code saya 
+                                    /*---- code saya -----*/ 
                                     {!! Lokasi::render() !!}
-                                    ........
+                                    /*---- code saya -----*/
                                 </div>
                             </div>
                             {!! Form::close() !!}
