@@ -76,7 +76,7 @@ php artisan migrate
 @endsection
 ```
 ### Contoh Pimplemntasi langsung
-ini pada file "create.blade.php" yang saya punya
+-   ini pada file "create.blade.php" yang saya punya
 ```php
 @extends('layouts.template')
 @section('content')
@@ -125,7 +125,55 @@ ini pada file "create.blade.php" yang saya punya
 @endsection
 
 ```
+-   ini pada file edit.blade.php yang saya punya
+```php
+@extends('layouts.template')
+@section('content')
+    <section id="basic-vertical-layouts">
+        <div class="row match-height">
+            <div class="col-md-12 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ $title }}</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            {!! Form::model($user, ['method' => 'PATCH', 'route' => ['users.update', $user->id]]) !!}
+                            <div class="form-body">
+                                <div class="row">
+                                    
+                                    {!! Lokasi::render($addloc->getRawOriginal()) !!}
+                                    
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @once
+        @push('ext_css')
+            {!! Lokasi::css() !!}
+        @endpush
+        @push('ext_scripts')
+            {!! Lokasi::scriptsedit($addloc->getRawOriginal()) !!}
+        @endpush
+    @endonce
+@endsection
 
+```
 ### Mengunakan Model Provinsi, Kota/Kabupate, Kecamatan, Desa
 
 Cara menggunaka model yang lokasi
