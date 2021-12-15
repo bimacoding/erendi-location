@@ -3,10 +3,15 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="provinces">Provinsi</label>
-                <select id="provinces" class="form-control">
+                <select id="provinces" class="form-control" name="prov_id">
                     <option value="">-- select --</option>
                     @foreach ($provinces as $prov)
-                        <option value="{{ $prov->prov_id }}"> {{ $prov->prov_name }} </option>
+                        @if (!empty($var))
+                            <option value="{{ $prov->prov_id }}" {!! $var['prov_id'] == $prov->prov_id ? 'selected' : '' !!}> {{ $prov->prov_name }}
+                            </option>
+                        @else
+                            <option value="{{ $prov->prov_id }}"> {{ $prov->prov_name }} </option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -15,7 +20,7 @@
             <div class="form-group">
                 <label for="cities">Kabupaten / Kota</label>
 
-                <select id="cities" class="form-control">
+                <select id="cities" class="form-control" name="city_id">
                     <option value="">-- select --</option>
                 </select>
             </div>
@@ -23,7 +28,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="district">Kecamatan</label>
-                <select id="district" class="form-control">
+                <select id="district" class="form-control" name="dis_id">
                     <option value="">-- select --</option>
                 </select>
             </div>
@@ -31,7 +36,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="subdistrict">Desa</label>
-                <select id="subdistrict" class="form-control">
+                <select id="subdistrict" class="form-control" name="subdis_id">
                     <option value="">-- select --</option>
                 </select>
             </div>

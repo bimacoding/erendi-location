@@ -2,68 +2,89 @@
 <script>
     $(document).ready(function() {
         $('.js-selected').select2();
-    });
-    var kd_provx = $("#provinces").val();
-    var kd_kabx = $("#cities").val();
-    var kd_kecx = $("#district").val();
-    $.ajax({
-        url: "{{ url('/location/city') }}",
-        method: "POST",
-        data: {
-            prov: kd_provx
-        },
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-            var html = '<option value="0">-- SELECT --</option>';
-            var i;
-            for (i = 0; i < data.length; i++) {
-                html += '<option value=' + data[i].city_id + '>' + data[i].city_name +
-                    '</option>';
+
+        var kd_provx = $("#provinces").val();
+        var kd_kabx = "{{ $var['city_id'] }}";
+        var kd_kecx = "{{ $var['dis_id'] }}";
+        var kd_desx = "{{ $var['subdis_id'] }}";
+        console.log(kd_kabx);
+        $.ajax({
+            url: "{{ url('/location/city') }}",
+            method: "POST",
+            data: {
+                prov: kd_provx
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                var html = '<option value="0">-- SELECT --</option>';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    if (kd_kabx == data[i].city_id) {
+                        html += '<option value=' + data[i].city_id + ' selected>' + data[i]
+                            .city_name +
+                            '</option>';
+                    } else {
+                        html += '<option value=' + data[i].city_id + '>' + data[i].city_name +
+                            '</option>';
+                    }
+
+                }
+                $('#cities').html(html);
             }
-            $('#cities').html(html);
-        }
-    });
+        });
 
-    $.ajax({
-        url: "{{ url('/location/district') }}",
-        method: "POST",
-        data: {
-            city: kd_kabx
-        },
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-            var html = '<option value="0">-- SELECT --</option>';
-            var i;
-            for (i = 0; i < data.length; i++) {
-                html += '<option value=' + data[i].dis_id + '>' + data[i].dis_name +
-                    '</option>';
+        $.ajax({
+            url: "{{ url('/location/district') }}",
+            method: "POST",
+            data: {
+                city: kd_kabx
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                var html = '<option value="0">-- SELECT --</option>';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    if (kd_kecx == data[i].dis_id) {
+                        html += '<option value=' + data[i].dis_id + ' selected>' + data[i]
+                            .dis_name +
+                            '</option>';
+                    } else {
+                        html += '<option value=' + data[i].dis_id + '>' + data[i].dis_name +
+                            '</option>';
+                    }
+                }
+                $('#district').html(html);
+
             }
-            $('#district').html(html);
+        });
 
-        }
-    });
-
-    $.ajax({
-        url: "{{ url('/location/subdistrict') }}",
-        method: "POST",
-        data: {
-            dis: kd_kecx
-        },
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-            var html = '<option value="0">-- SELECT --</option>';
-            var i;
-            for (i = 0; i < data.length; i++) {
-                html += '<option value=' + data[i].subdis_id + '>' + data[i].subdis_name +
-                    '</option>';
+        $.ajax({
+            url: "{{ url('/location/subdistrict') }}",
+            method: "POST",
+            data: {
+                dis: kd_kecx
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                var html = '<option value="0">-- SELECT --</option>';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    if (kd_desx == data[i].subdis_id) {
+                        html += '<option value=' + data[i].subdis_id + ' selected>' + data[i]
+                            .subdis_name +
+                            '</option>';
+                    } else {
+                        html += '<option value=' + data[i].subdis_id + '>' + data[i].subdis_name +
+                            '</option>';
+                    }
+                }
+                $('#subdistrict').html(html);
             }
-            $('#subdistrict').html(html);
-        }
+        });
     });
-
     $("#provinces").change(function() {
         var kd_prov = $(this).val();
         $.ajax({

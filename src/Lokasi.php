@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class Lokasi {
 
-    public static function render(){
+    public static function render($arr){
         $provinces = Provinces::all();
-        return view('location::location',compact('provinces'));
+        $var = $arr;
+        return view('location::location',compact('provinces','var'));
     }
 
     public static function scripts()
@@ -17,9 +18,10 @@ class Lokasi {
         return view('location::script');
     }
 
-    public static function scriptsedit()
+    public static function scriptsedit($arr)
     {
-        return view('location::scriptedit');
+        $var = $arr;
+        return view('location::scriptedit',compact('var'));
     }
 
     public static function css()
