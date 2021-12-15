@@ -28,6 +28,12 @@ Erendi\Location\LocationServiceProvider::class,
 php artisan vendor:publish --provider="Erendi\Location\LocationServiceProvider"
 ```
 
+5.  Lakukan migration data
+
+```php
+php artisan migrate
+```
+
 ### Penggunaan
 
 1.  pada halaman view create/add/atau tambah

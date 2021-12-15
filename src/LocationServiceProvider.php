@@ -35,5 +35,11 @@ class LocationServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Views'   => resource_path('views/vendor/location'),
         ], 'view');
+        $this->publishes([
+            __DIR__ . '/../migrations/2021_12_10_088881_create_provinces_table.php' => database_path('migrations/2021_12_10_088881_create_provinces_table.php'),
+            __DIR__ . '/../migrations/2021_12_10_088882_create_cities_table.php' => database_path('migrations/2021_12_10_088882_create_cities_table.php'),
+            __DIR__ . '/../migrations/2021_12_10_088883_create_districts_table.php' => database_path('migrations/2021_12_10_088883_create_districts_table.php'),
+            __DIR__ . '/../migrations/2021_12_10_088884_create_subdistricts_table.php' => database_path('migrations/2021_12_10_088884_create_subdistricts_table.php'),
+        ], 'migrations');
     }
 }
