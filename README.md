@@ -5,7 +5,7 @@ Location packages for province, citites, district, and subdistrict indonesian su
 1. Install dengan composer
 
 ```php
-composer require erendi/menu
+composer require erendi/location
 ```
 2. Tambahkan kelas berikut, ke array "providers" di file config/app.php
 
@@ -16,7 +16,7 @@ Erendi\Location\LocationServiceProvider::class,
 3. Tambahkan facades di file config/app.php "aliase"
 
 ```php
-'Menu' => Erendi\Location\Facades\Location::class,
+'Lokasi' => Erendi\Location\Facades\Location::class,
 ```
 
 4. Publish packages
