@@ -1,3 +1,5 @@
+<script src="{{ asset('vendor/location/js/scripts.min.js') }}"></script>
+<script src="{{ asset('vendor/location/js/select2.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $('.js-selected').select2();
@@ -69,5 +71,3 @@
         });
     });
 </script>
-<script src="{{ asset('vendor/location/js/scripts.min.js') }}"></script>
-<script src="{{ asset('vendor/location/js/select2.min.js') }}"></script>

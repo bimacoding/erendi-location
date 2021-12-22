@@ -7,7 +7,6 @@
         var kd_kabx = "{{ $var['city_id'] }}";
         var kd_kecx = "{{ $var['dis_id'] }}";
         var kd_desx = "{{ $var['subdis_id'] }}";
-        console.log(kd_kabx);
         $.ajax({
             url: "{{ url('/location/city') }}",
             method: "POST",
@@ -85,6 +84,7 @@
             }
         });
     });
+
     $("#provinces").change(function() {
         var kd_prov = $(this).val();
         $.ajax({

@@ -19,9 +19,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="cities">Kabupaten / Kota</label>
-
                 <select id="cities" class="form-control" name="city_id">
-                    <option value="">-- select --</option>
                 </select>
             </div>
         </div>
@@ -29,7 +27,6 @@
             <div class="form-group">
                 <label for="district">Kecamatan</label>
                 <select id="district" class="form-control" name="dis_id">
-                    <option value="">-- select --</option>
                 </select>
             </div>
         </div>
@@ -37,7 +34,6 @@
             <div class="form-group">
                 <label for="subdistrict">Desa</label>
                 <select id="subdistrict" class="form-control" name="subdis_id">
-                    <option value="">-- select --</option>
                 </select>
             </div>
         </div>
